@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const sizeInfo = document.getElementById('size-info');
 const colorInfo = document.getElementById('color-info');
 const savedColorInfo = document.getElementById('saved-color-info');
+canvas.addEventListener('click', handleClick);
 
 let image;
 let savedColors = [];
@@ -35,8 +36,7 @@ function loadImage(src) {
     const img = new Image();
     while (savedColors.length > 0) {
         savedColors.pop()
-  }
-    addClickEvent()
+    }
     savedColorInfo.innerHTML = ""
     img.crossOrigin = "Anonymous"
     img.onload = function() {
@@ -51,11 +51,6 @@ function loadImage(src) {
 function showImageInfo() {
     sizeInfo.textContent = `Image Width: ${canvas.width}px, Image Height: ${canvas.height}px`;
 }
-
-function addClickEvent() {
-    canvas.removeEventListener('click', handleClick); // Удаляем обработчик, чтобы избежать дублирования
-    canvas.addEventListener('click', handleClick);
-  }
 
 function handleClick(event) {
     const x = event.offsetX;
