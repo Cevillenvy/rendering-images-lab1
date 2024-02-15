@@ -43,7 +43,6 @@ function loadImage(src) {
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
-        image = img;
         showImageInfo();
     }
     img.src = src;
