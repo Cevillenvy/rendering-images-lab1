@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const sizeInfo = document.getElementById('size-info');
 const colorInfo = document.getElementById('color-info');
 const savedColorInfo = document.getElementById('saved-color-info');
+
 let image;
 let savedColors = [];
 
@@ -38,14 +39,13 @@ function loadImage(src) {
     addClickEvent()
     savedColorInfo.innerHTML = ""
     img.crossOrigin = "Anonymous"
-        img.onload = function() {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
-            image = img;
-            showImageInfo();
-            addClickEvent();
-        }
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        image = img;
+        showImageInfo();
+    }
     img.src = src;
 }
 
