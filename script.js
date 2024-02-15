@@ -37,6 +37,7 @@ function loadImage(src) {
   }
     addClickEvent()
     savedColorInfo.innerHTML = ""
+    img.crossOrigin = "Anonymous"
         img.onload = function() {
             canvas.width = img.width;
             canvas.height = img.height;
